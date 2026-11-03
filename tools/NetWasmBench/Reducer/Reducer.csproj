@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Desktop .NET: renders the bench's frames, records the lumps they read,
+       and writes the reduced WAD and the bench's WadData.g.cs. WadTracked.cs
+       is ../../../Wad.cs with Find recording each name it looks up. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../../Assets.cs;../../../BrowserInput.cs;../../../Font.cs;../../../Game.cs;../../../Instruments.cs;../../../Music.cs;../../../Renderer.cs;../../../Save.cs;../../../TextureAnimation.cs" Link="Engine/%(Filename)%(Extension)" />
+    <Compile Include="WadTracked.cs;Reducer.cs" />
+  </ItemGroup>
+</Project>

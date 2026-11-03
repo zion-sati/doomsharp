@@ -1,0 +1,22 @@
+<Project Sdk="NetWasm.Sdk">
+  <!-- Renders the paused first scene of a reduced E1M1 and prints each batch's
+       time and pixel checksum. Generate WadData.g.cs with the reducer first;
+       see README.md. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netwasm0.1</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <DefineConstants>$(DefineConstants);NETWASM</DefineConstants>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NetWasm.System.Text.Json" Version="0.10.0" />
+    <PackageReference Include="NetWasm.System.Linq" Version="0.10.0" />
+    <Compile Include="../../Assets.cs;../../BrowserInput.cs;../../Font.cs;../../Game.cs;../../Instruments.cs;../../Music.cs;../../Renderer.cs;../../Save.cs;../../TextureAnimation.cs;../../Wad.cs" Link="Engine/%(Filename)%(Extension)" />
+    <Compile Include="Bench.cs;WadData.g.cs" />
+  </ItemGroup>
+  <Target Name="RequireWadData" BeforeTargets="CoreCompile" Condition="!Exists('WadData.g.cs')">
+    <Error Text="WadData.g.cs is missing. From the repository root, run: dotnet run --project tools/NetWasmBench/Reducer -c Release -- assets/freedoom/freedoom1.wad tools/NetWasmBench" />
+  </Target>
+</Project>
