@@ -2,16 +2,13 @@
   <PropertyGroup>
     <OutputType>JsModule</OutputType>
     <NetWasmJavaScriptHosts>page</NetWasmJavaScriptHosts>
-    <TargetFramework>netwasm0.1</TargetFramework>
+    <TargetFramework>net10.0-netwasm</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <DefineConstants>$(DefineConstants);NETWASM</DefineConstants>
     <NetWasmOptimization>O3</NetWasmOptimization>
     <NetWasmGarbageCollector>NetWasm</NetWasmGarbageCollector>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NetWasm.System.Text.Json" Version="0.11.0" />
-    <PackageReference Include="NetWasm.System.Linq" Version="0.11.0" />
     <NetWasmJavaScriptModule Include="app.host.mjs" Module="app.host" />
     <Content Include="index.html;app.mjs" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="../Browser/wwwroot/host.js" Link="host.js" CopyToPublishDirectory="PreserveNewest" />

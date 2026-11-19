@@ -1,9 +1,9 @@
 # NetWasm browser host
 
 This project compiles the same DoomSharp engine files as the Blazor host using
-[NetWasm](https://github.com/zion-sati/NetWasm) SDK 0.11.3, at its `O3`
-optimization preset with the NetWasmGC collector, and its `NetWasm.System.Linq`
-and `NetWasm.System.Text.Json` 0.11.0 packages. It publishes a standalone
+[NetWasm](https://github.com/zion-sati/NetWasm) SDK 0.15.0 for `net10.0-netwasm`,
+at its `O3` optimization preset with the NetWasmGC collector; LINQ and
+`System.Text.Json` come with NetWasm's framework. It publishes a standalone
 JS-callable WebAssembly module; the browser page uses the existing
 Canvas/WebAudio/keyboard adapter. The two browser builds are separate: switching
 versions loads a new page, not a second runtime in the same page.
