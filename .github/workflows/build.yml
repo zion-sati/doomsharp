@@ -68,7 +68,8 @@ jobs:
           name: doomsharp-${{ matrix.rid }}
           path: artifacts/
   browser:
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1, which BrowserChecks uses, installs browsers on Ubuntu 24.04 but not on ubuntu-latest's 26.04.
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -138,7 +139,8 @@ jobs:
   pages:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: browser
-    runs-on: ubuntu-latest
+    # Playwright 1.56.1, which BrowserChecks uses, installs browsers on Ubuntu 24.04 but not on ubuntu-latest's 26.04.
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       pages: write
