@@ -78,8 +78,12 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 10.0.x
-      # The workloads the selected SDK needs for the Blazor AOT build: wasm-tools on SDK 10, wasm-tools-net10 on SDK 11.
-      - run: dotnet workload restore Browser/DoomSharp.Browser.csproj
+      - name: Install the WebAssembly workload the selected SDK needs for the Blazor AOT build
+        shell: bash
+        run: |
+          # `dotnet` picks the newest SDK on the runner; a net10.0 Blazor AOT build needs wasm-tools under the .NET 10
+          # SDK and wasm-tools-net10 under later ones.
+          if [[ "$(dotnet --version)" == 10.* ]]; then dotnet workload install wasm-tools; else dotnet workload install wasm-tools-net10; fi
       - run: dotnet publish Browser/DoomSharp.Browser.csproj -c Release -o artifacts/browser
       - name: Publish alternative NetWasm browser runtime
         if: matrix.browser == 'chromium'
