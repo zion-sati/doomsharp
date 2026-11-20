@@ -7,6 +7,8 @@
     <Nullable>enable</Nullable>
     <NetWasmOptimization>O3</NetWasmOptimization>
     <NetWasmGarbageCollector>NetWasm</NetWasmGarbageCollector>
+    <!-- DoomSharp reads no type names, so it ships neither the names nor the code that loads them. -->
+    <NetWasmTypeNames>false</NetWasmTypeNames>
   </PropertyGroup>
   <ItemGroup>
     <NetWasmJavaScriptModule Include="app.host.mjs" Module="app.host" />
