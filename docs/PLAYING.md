@@ -126,7 +126,7 @@ The deployment job then runs Chromium against the public Pages URL, exercising
 WAD loading, rendering, input and gameplay. Its `doomsharp-live-pages` artifact
 retains the results and screenshots; a successful upload alone is not a
 successful live gameplay check.
-The site is available at <https://davidfowl.github.io/doomsharp/> after a successful
+The site is available at <https://doom-sharp.netwasm.com/> after a successful
 Pages deployment. This build does not require cross-origin-isolation headers.
 
 To reproduce the subpath check locally, serve the published output with:

@@ -3,8 +3,8 @@
 A playable, clean-room **classic WAD game engine built in C#**. DoomSharp loads
 maps, runs single-player gameplay and draws each frame in software, without
 using the original DOOM source or a managed game engine. The same engine runs
-as a native desktop app and in the browser: .NET WebAssembly or the experimental
-NetWasm toolchain, with JavaScript only bridging browser input, Canvas and audio.
+as a native desktop app and in the browser: .NET WebAssembly or the
+[NetWasm](https://github.com/zion-sati/NetWasm) toolchain, with JavaScript only bridging browser input, Canvas and audio.
 
 **Playable, not a complete DOOM replacement.** The bundled, freely licensed
 Freedoom Phase 1 starts automatically in the browser or with `--demo` on desktop.
@@ -16,8 +16,12 @@ trying another WAD.
 
 | Version | What runs |
 |---|---|
-| [Play .NET WASM (Blazor AOT)](https://davidfowl.github.io/doomsharp/) | The C# engine compiled ahead of time for the browser. |
-| [Play NetWasm](https://davidfowl.github.io/doomsharp/netwasm/) | The same engine compiled with the experimental [NetWasm toolchain](NetWasm/README.md). |
+| [Play .NET WASM (Blazor AOT)](https://doom-sharp.netwasm.com/) | The C# engine compiled ahead of time for the browser. |
+| [Play NetWasm](https://doom-sharp.netwasm.com/netwasm/) | The same engine compiled with the [NetWasm toolchain](NetWasm/README.md). |
+
+The NetWasm build renders frames about 1.4 times as fast as the Blazor AOT
+build, which is Mono AOT, and downloads an eighth as much
+([measurements](https://github.com/zion-sati/NetWasm/blob/main/docs/micro-benchmarks.md#doomsharp)).
 
 These links point to GitHub Pages and require a successful deployment. Both
 versions use the same bundled Freedoom WAD, support a local WAD (up to 64 MiB),
